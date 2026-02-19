@@ -1,0 +1,60 @@
+
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Parent = player:WaitForChild("PlayerGui")
+local OpenButton = Instance.new("TextButton")
+OpenButton.Parent = ScreenGui
+OpenButton.Size = UDim2.fromOffset(50,50)
+OpenButton.Position = UDim2.fromScale(0.1,0.2)
+OpenButton.Text = "≡"
+OpenButton.BackgroundColor3 = Color3.fromRGB(25,25,25)
+OpenButton.TextColor3 = Color3.new(1,1,1)
+OpenButton.Draggable = true
+
+local OpenCorner = Instance.new("UICorner", OpenButton)
+OpenCorner.CornerRadius = UDim.new(1,0)
+
+-- Frame 
+local MainFrame = Instance.new("Frame")
+MainFrame.Parent = ScreenGui
+MainFrame.Size = UDim2.fromOffset(400,250)
+MainFrame.Position = UDim2.fromScale(0.5,0.5)
+MainFrame.AnchorPoint = Vector2.new(0.5,0.5)
+MainFrame.BackgroundColor3 = Color3.fromRGB(35,35,35)
+MainFrame.Visible = false
+MainFrame.Active = true
+MainFrame.Draggable = true
+
+local FrameCorner = Instance.new("UICorner", MainFrame)
+FrameCorner.CornerRadius = UDim.new(0,15)
+
+-- Title
+local Title = Instance.new("TextLabel")
+Title.Parent = MainFrame
+Title.Size = UDim2.new(1,0,0,40)
+Title.BackgroundTransparency = 1
+Title.Text = "Chii Hauu"
+Title.TextColor3 = Color3.new(1,1,1)
+Title.TextScaled = true
+
+-- sample
+local TestButton = Instance.new("TextButton")
+TestButton.Parent = MainFrame
+TestButton.Size = UDim2.fromOffset(200,50)
+TestButton.Position = UDim2.fromScale(0.5,0.5)
+TestButton.AnchorPoint = Vector2.new(0.5,0.5)
+TestButton.Text = "Click Me"
+TestButton.BackgroundColor3 = Color3.fromRGB(50,50,50)
+TestButton.TextColor3 = Color3.new(1,1,1)
+
+local ButtonCorner = Instance.new("UICorner", TestButton)
+ButtonCorner.CornerRadius = UDim.new(0,10)
+
+-- Open/Close Menu
+OpenButton.MouseButton1Click:Connect(function()
+    MainFrame.Visible = not MainFrame.Visible
+end)
+
+-- Button events
+TestButton.MouseButton1Click:Connect(function()
+    print("Bạn đã bấm nút!")
+end)
